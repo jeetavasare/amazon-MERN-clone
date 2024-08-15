@@ -8,5 +8,5 @@ const App = () =>{
     </>
 }
 
-const root = ReactDom.createRoot(document.getElementById("main"))
+const root = ReactDom.createRoot(document.getElementById("root"))
 root.render(App())

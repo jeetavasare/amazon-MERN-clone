@@ -1,8 +1,13 @@
 import React from "react";
+import Navbar from "./Navbar";
 import ProductsGrid from "./ProductsGrid";
 const Body = () =>{
     return <>
-        <ProductsGrid/>
+        <Navbar/>
+        <div className="main">
+            <ProductsGrid/>
+
+        </div>
     </>
 }
 
