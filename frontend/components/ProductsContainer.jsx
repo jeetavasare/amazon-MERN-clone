@@ -2,7 +2,7 @@ import React from "react";
 
 const ProductsContainer = () =>{
     return <>
-        <div className="products-container">
+        <div className="product-container">
         <div className="product-image-container">
             <img className="product-image"
               src="images/products/athletic-cotton-socks-6-pairs.jpg"/>
