@@ -1,3 +1,6 @@
+:root{
+  --shimmer-color : rgb(224,224,224);
+}
 .main {
   margin-top: 60px;
 }
@@ -153,4 +156,15 @@
   width: 100%;
   padding: 8px;
   border-radius: 50px;
+}
+.product-shimmer-button{
+  height: 34px;
+}
+.product-shimmer-name{
+  border-radius: 24px;
+  background-color: var(--shimmer-color);
+}
+.product-shimmer-image{
+  background-color: var(--shimmer-color);
+  border-radius: 18px;
 }
