@@ -1,32 +1,15 @@
 import React, { useEffect, useState } from "react";
-const ProductsContainer = () => {
-  let [product,setProduct] = useState()
-  useEffect(
-    () =>{
-      const fetchProduct = async()=>{
-        let response = await fetch("http://localhost:3000/products")
-        let json = await response.json()
-        setProduct(json)
-      }
-      fetchProduct()
-    }
-    ,[])
-  if (!product){
-    return <h1>Loading</h1>
-  }
-  return (
-    <>
-      
-      <div className="product-container">
+import ProductShimmer from "./ProductShimmer";
+const ProductsContainerRenderer = ({ productData }) => {
+  
+  return <>
+    <div className="product-container">
         <div className="product-image-container">
-          <img
-            className="product-image"
-            src={product[0]?.image}
-          />
+          <img className="product-image" src={productData?.image} />
         </div>
 
         <div className="product-name limit-text-to-2-lines">
-          {product[0]?.name}
+          {productData?.name}
         </div>
 
         <div className="product-rating-container">
@@ -34,10 +17,12 @@ const ProductsContainer = () => {
             className="product-rating-stars"
             src="images/ratings/rating-45.png"
           />
-          <div className="product-rating-count link-primary">{product[0]?.rating?.count}</div>
+          <div className="product-rating-count link-primary">
+            {productData?.rating?.count}
+          </div>
         </div>
 
-        <div className="product-price">{product[0]?.priceCents}</div>
+        <div className="product-price">{productData.priceCents}</div>
 
         <div className="product-quantity-container">
           <select>
@@ -67,6 +52,33 @@ const ProductsContainer = () => {
           Add to Cart
         </button>
       </div>
+  </>;
+};
+
+const ProductsContainer = () => {
+  let [product, setProduct] = useState();
+  useEffect(() => {
+    const fetchProduct = async () => {
+      let response = await fetch("http://localhost:3000/products");
+      let json = await response.json();
+      setProduct(json);
+    };
+    fetchProduct();
+  }, []);
+  if (!product) {
+    return <ProductShimmer/>;
+  }
+  return (
+    <>
+      
+      {
+      product.map((item,index) => {
+        return <ProductsContainerRenderer key={item.id} productData={item}/>
+      })
+      
+      }
+      
+      
     </>
   );
 };
