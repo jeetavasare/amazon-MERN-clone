@@ -99,3 +99,11 @@ select:focus,
 input:focus {
   outline: 2px solid rgb(255, 153, 0);
 }
+.online-offline-bar{
+  background-color: rgb(255, 247, 213);
+  color: darkblue;
+  height: 50px;
+  margin-top:60px;
+  text-align: center;
+  align-content: center;
+}

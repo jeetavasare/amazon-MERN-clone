@@ -3,6 +3,8 @@
 }
 .main {
   margin-top: 60px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .products-grid {
@@ -26,7 +28,7 @@
    will divide the grid into 7 columns instead of 8. */
 @media (max-width: 2000px) {
   .products-grid {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
