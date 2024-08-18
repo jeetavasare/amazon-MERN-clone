@@ -1,7 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductShimmer from "./ProductShimmer";
+import { CartContext } from "./Body";
 const ProductsContainerRenderer = ({ productData }) => {
   
+  let data = useContext(CartContext)
+
+  const handleAddtoCart = (id)=>{
+    data.setCartItems(data.cartItems + 1)
+    
+  }
+
   return <>
     <div className="product-container">
         <div className="product-image-container">
@@ -48,7 +56,7 @@ const ProductsContainerRenderer = ({ productData }) => {
           Added
         </div>
 
-        <button className="add-to-cart-button button-primary">
+        <button className="add-to-cart-button button-primary" onClick={() =>{handleAddtoCart(productData?.id)}}>
           Add to Cart
         </button>
       </div>

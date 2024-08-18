@@ -1,4 +1,7 @@
+import { useContext } from "react"
+import { CartContext } from "./Body"
 const Navbar = () =>{
+  let data = useContext(CartContext)
     return <>
     <div className="amazon-header">
       <div className="amazon-header-left-section">
@@ -26,7 +29,7 @@ const Navbar = () =>{
 
         <a className="cart-link header-link" href="checkout.html">
           <img className="cart-icon" src="images/icons/cart-icon.png"/>
-          <div className="cart-quantity">3</div>
+          <div className="cart-quantity">{data.cartItems}</div>
           <div className="cart-text">Cart</div>
         </a>
       </div>
