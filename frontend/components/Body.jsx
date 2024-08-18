@@ -1,14 +1,18 @@
 import React from "react";
 import Navbar from "./Navbar";
 import ProductsGrid from "./ProductsGrid";
-const Body = () =>{
-    return <>
-        <Navbar/>
-        <div className="main">
-            <ProductsGrid/>
-
-        </div>
+import OnlineOffline from "./OnlineOfflineBar";
+const Body = () => {
+  return (
+    <>
+      <Navbar />
+      <OnlineOffline />
+      <div className="main">
+        
+        <ProductsGrid />
+      </div>
     </>
-}
+  );
+};
 
-export default Body
+export default Body;
