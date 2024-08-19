@@ -1,18 +1,15 @@
 import express from 'express';
-
+import config from './utils/configManager.js';
 import cors from "cors";
-import router from "./routes/products.js";
-import MongoDB from './db/mongoHelper.js';
+import productRouter from "./routes/products.js";
+
 const app = express()
 
-let database = new MongoDB('mongodb://localhost:27017/Amazon-MERN')
-await database.connectDB('mongodb://localhost:27017/Amazon-MERN')
-let a = await database.find("Users")
-console.log("dfdf",a)
+
 app.use(cors({
     origin: 'http://localhost:5173'  // Replace with your frontend origin
 }));
-
+console.log(config)
 
 
 app.get("/",(req,res)=> {
@@ -21,7 +18,7 @@ app.get("/",(req,res)=> {
 
 
 
-app.use("/products",router)
+app.use("/products",productRouter)
 
 
 app.listen(3000)

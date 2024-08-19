@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { readFile } from "fs";
 import { join } from "path";
-const router = Router();
+const productRouter = Router();
 
-router.get("/", (req, res) => {
+productRouter.get("/", (req, res) => {
     // Define the path to the products.json file
     const filePath = join(__dirname, '../products.json');
     
@@ -27,4 +27,4 @@ router.get("/", (req, res) => {
     });
 });
 
-export default router;
+export default productRouter;
