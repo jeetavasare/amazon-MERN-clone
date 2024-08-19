@@ -6,7 +6,7 @@ function loadConfig() {
     const defaultConfigPath = join(configDir, 'appsettings.json');
     const launchSettingsPath = join(configDir, 'launchsettings.json');
 
-    console.log(launchSettingsPath)
+
     // default environment
     let env = process.env.NODE_ENV || 'development';
     // Load launchsettings if available
