@@ -18,19 +18,8 @@ const ProductShimmerRenderer = () => {
         <div className="product-price">XXXX</div>
 
         <div className="product-quantity-container">
-          <select>
-            <option selected value="1">
-              1
-            </option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+          <select defaultValue={1}>
+            
           </select>
         </div>
 
@@ -44,7 +33,6 @@ const ProductShimmer = () => {
   let n = parseInt(WindowDimensions[0] / 400);
   
   let arr = Array.from({length:n * 6})
-  console.log(arr.length);
   return (
     <>
       {arr.map(
