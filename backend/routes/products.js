@@ -1,14 +1,14 @@
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
-const router = express.Router();
+import { Router } from "express";
+import { readFile } from "fs";
+import { join } from "path";
+const router = Router();
 
 router.get("/", (req, res) => {
     // Define the path to the products.json file
-    const filePath = path.join(__dirname, '../products.json');
+    const filePath = join(__dirname, '../products.json');
     
     // Read the file asynchronously
-    fs.readFile(filePath, 'utf8', (err, data) => {
+    readFile(filePath, 'utf8', (err, data) => {
         if (err) {
             // Handle the error if the file can't be read
             return res.status(500).json({ error: "Failed to read products file" });
@@ -27,4 +27,4 @@ router.get("/", (req, res) => {
     });
 });
 
-module.exports = router;
+export default router;
