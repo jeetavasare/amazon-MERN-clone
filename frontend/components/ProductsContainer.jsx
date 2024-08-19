@@ -1,13 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ProductShimmer from "./ProductShimmer";
 import { CartContext } from "./Body";
 const ProductsContainerRenderer = ({ productData }) => {
   
   let data = useContext(CartContext)
 
-  const handleAddtoCart = (id)=>{
-    data.setCartItems(data.cartItems + 1)
+  const handleAddtoCart = (id,quantity)=>{
+    data.setCartItems(data.cartItems + parseInt(quantity))
     
+  }
+
+  const FinalQuantity = useRef(1)
+  const updateQuantity = (e)=>{
+    FinalQuantity.current = parseInt(e.target.value)
+    console.log(FinalQuantity)
   }
 
   return <>
@@ -33,10 +39,8 @@ const ProductsContainerRenderer = ({ productData }) => {
         <div className="product-price">{productData.priceCents}</div>
 
         <div className="product-quantity-container">
-          <select>
-            <option selected value="1">
-              1
-            </option>
+          <select defaultValue={FinalQuantity.current} onChange={updateQuantity}>
+            <option  value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
@@ -56,7 +60,7 @@ const ProductsContainerRenderer = ({ productData }) => {
           Added
         </div>
 
-        <button className="add-to-cart-button button-primary" onClick={() =>{handleAddtoCart(productData?.id)}}>
+        <button className="add-to-cart-button button-primary" onClick={() =>{handleAddtoCart(productData?.id,FinalQuantity.current)}}>
           Add to Cart
         </button>
       </div>
